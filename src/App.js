@@ -15,7 +15,7 @@ function App() {
   const [showCard, setShowCard] = useState(false);
   const [logK, setLogK] = useState(false);
 
-  const onSubmit = (data, errors) => {
+  const onSubmit = (data) => {
     const result = myUtility.calculateLogK(data["solvent"], data["solute"]);
     setLogK(result);
     setShowCard(true);
