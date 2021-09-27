@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './App.css';
 import myImage from './logo.png';
-import { Image, Form, Container, Button, Row, Col, Card } from 'react-bootstrap';
+import { Image, Form, Container, Button, Row, Col, Card, Alert } from 'react-bootstrap';
 import { useForm } from "react-hook-form";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -15,7 +15,7 @@ function App() {
   const [showCard, setShowCard] = useState(false);
   const [logK, setLogK] = useState(false);
 
-  const onSubmit = (data) => {
+  const onSubmit = (data, errors) => {
     const result = myUtility.calculateLogK(data["solvent"], data["solute"]);
     setLogK(result);
     setShowCard(true);
@@ -25,10 +25,14 @@ function App() {
     setShowCard(false);
   }
 
-  const { handleSubmit, register } = useForm({
+  const onReset = () => {
+    reset({ solute: "", solvent: "" })
+  }
+
+  const { handleSubmit, register, reset, formState: { errors } } = useForm({
     defaultValues: {
-      solvent: 0,
-      solute: 0,
+      solvent: "",
+      solute: "",
     },
   });
 
@@ -57,27 +61,43 @@ function App() {
         <Form onSubmit={handleSubmit(onSubmit)}>
           <Container className="mt-3">
             <Form.Label>Select your solute</Form.Label>
-            <Form.Select {...register("solute")}>
+            <Form.Select {...register("solute", { required: true })}>
               {CASList.map((cas) => {
                 return <option value={cas}>{cas}</option>
               })}
             </Form.Select>
           </Container>
+
+          {errors.solute && errors.solute.type === "required" &&
+            <Container className="mt-3">
+              <Alert variant="danger">
+                Please choose the solute
+              </Alert>
+            </Container>
+          }
 
 
           <Container className="mt-3">
             <Form.Label>Select your solvent</Form.Label>
-            <Form.Select {...register("solvent")}>
+            <Form.Select {...register("solvent", { required: true })}>
               {CASList.map((cas) => {
                 return <option value={cas}>{cas}</option>
               })}
             </Form.Select>
           </Container>
 
+          {errors.solvent && errors.solvent.type === "required" &&
+            <Container className="mt-3">
+              <Alert variant="danger">
+                Please choose the solvent
+              </Alert>
+            </Container>
+          }
+
           <Container className="mt-10">
             <Col>
               <Row><Button id="button" variant="primary" size="lg" type="submit">Submit</Button></Row>
-              <Row><Button id="button" variant="danger" size="lg">Reset</Button></Row>
+              <Row><Button id="button" variant="danger" size="lg" onClick={onReset}>Reset</Button></Row>
             </Col>
           </Container>
         </Form>
