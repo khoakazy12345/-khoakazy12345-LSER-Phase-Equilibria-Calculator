@@ -78,7 +78,6 @@ function App() {
             </Container>
           }
 
-
           <Container className="mt-3">
             <Form.Label>Select your solvent</Form.Label>
             <Form.Select {...register("solvent", { required: true })}>
@@ -96,7 +95,7 @@ function App() {
             </Container>
           }
 
-          <Container className="mt-10">
+          <Container className="mt-5">
             <Col>
               <Row><Button id="button" variant="primary" size="lg" type="submit">Submit</Button></Row>
               <Row><Button id="button" variant="danger" size="lg" onClick={onReset}>Reset</Button></Row>
