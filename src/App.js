@@ -23,10 +23,12 @@ function App() {
 
   const onCloseCard = () => {
     setShowCard(false);
+    setLogK(0);
   }
 
   const onReset = () => {
-    reset({ solute: "", solvent: "" })
+    reset({ solute: "", solvent: "" });
+    setLogK(0);
   }
 
   const { handleSubmit, register, reset, formState: { errors } } = useForm({
