@@ -40,6 +40,14 @@ class Utility   {
         }
         return (c1 + e1*E2 + s1*S2 + a1*A2 + b1*B2 + l1*L2).toFixed(3);
     }
+
+    /*
+    Formula = -(logK / Math.log10(Math.E)) * 298.15 * ((8.314462 / 4.184 / 1000))
+    */
+
+    calculateFreeEnergy(logK) {
+        return -(logK / Math.log10(Math.E)) * 298.15 * ((8.314462 / 4.184 / 1000));
+    }
 }
 
 export default Utility;
