@@ -80,23 +80,23 @@ function App() {
                 Your logK for {solute} in {solvent} is {logK1in2}!
               </Card.Text>
               <Card.Text>
-                Your logK for {solvent} in {solute}is {logK2in1}!
+                Your logK for {solvent} in {solute} is {logK2in1}!
               </Card.Text>
               <Card.Text>
-                Your logK for {solute} in {solute}is {logK1in1}!
+                Your logK for {solute} in {solute} is {logK2in2}!
               </Card.Text>
               <Card.Text>
-                Your logK for {solvent} in {solvent} is {logK2in2}!
+                Your logK for {solvent} in {solvent} is {logK1in1}!
               </Card.Text>
 
               <Card.Text>
                 Your free energy for {solute} in {solvent} is {solvationFreeEnergy1in2}!
               </Card.Text>
               <Card.Text>
-                Your free energy for {solvent} in {solute}is {solvationFreeEnergy2in1}!
+                Your free energy for {solvent} in {solute} is {solvationFreeEnergy2in1}!
               </Card.Text>
               <Card.Text>
-                Your free energy for {solute} in {solute}is {solvationFreeEnergy1in1}!
+                Your free energy for {solute} in {solute} is {solvationFreeEnergy1in1}!
               </Card.Text>
               <Card.Text>
                 Your free energy for {solvent} in {solvent} is {solvationFreeEnergy2in2}!

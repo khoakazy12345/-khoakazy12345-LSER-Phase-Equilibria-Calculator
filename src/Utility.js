@@ -46,7 +46,7 @@ class Utility   {
     */
 
     calculateFreeEnergy(logK) {
-        return -(logK / Math.log10(Math.E)) * 298.15 * ((8.314462 / 4.184 / 1000));
+        return -(logK / Math.log10(Math.E)) * 298.15 * ((8.314462 / 4.184 / 1000)).toFixed(5);
     }
 }
 
